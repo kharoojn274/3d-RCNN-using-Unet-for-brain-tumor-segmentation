@@ -1,0 +1,1 @@
+brats_3d_100.hdf5 filter=lfs diff=lfs merge=lfs -text
