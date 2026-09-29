@@ -1,0 +1,10 @@
+task: goat
+seed: 42
+input_dir: /data/task3
+output_dir: /outputs/task3
+num_classes: 4
+patch_size: [128, 128, 96]
+batch_size: 1
+epochs: 100
+learning_rate: 0.0002
+amp: true
