@@ -1,4 +1,4 @@
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from pathlib import Path
 import json
 
@@ -63,14 +63,14 @@ class TrainConfig:
 
 @dataclass
 class ExperimentConfig:
-    data: DataConfig = DataConfig()
-    model: ModelConfig = ModelConfig()
-    optimizer: OptimConfig = OptimConfig()
-    scheduler: SchedulerConfig = SchedulerConfig()
-    loss: LossConfig = LossConfig()
-    train: TrainConfig = TrainConfig()
+    data: DataConfig = field(default_factory=DataConfig)
+    model: ModelConfig = field(default_factory=ModelConfig)
+    optimizer: OptimConfig = field(default_factory=OptimConfig)
+    scheduler: SchedulerConfig = field(default_factory=SchedulerConfig)
+    loss: LossConfig = field(default_factory=LossConfig)
+    train: TrainConfig = field(default_factory=TrainConfig)
 
-    def save(self, path: str = "configs/brats2023_v2.json"):
+    def save(self, path: str = "configs/brats2020_v2.json"):
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
 
